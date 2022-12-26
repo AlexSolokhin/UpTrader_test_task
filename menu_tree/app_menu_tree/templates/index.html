@@ -1,0 +1,15 @@
+{% extends "base_parts/base.html" %}
+{% load static menu_template_tag %}
+
+{% block title %}
+    Menu catalogue
+{% endblock %}
+{% block content %}
+    <h1>
+        We have some menu
+    </h1>
+    {% draw_menu 'Categories' %}
+    <p>
+    </p>
+    {% draw_menu 'About us' %}
+{% endblock %}

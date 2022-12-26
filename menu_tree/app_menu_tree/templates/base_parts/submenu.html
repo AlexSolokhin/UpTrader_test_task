@@ -1,0 +1,15 @@
+{% load menu_template_tag %}
+
+{% for item in item.children.all|active_items %}
+    <li>
+        <a href="{% url 'menu_item' slug=item.slug %}">
+            <span>{{ item.name }}</span>
+        </a>
+        {% if item.children.all %}
+            <span class="arrow"></span>
+            <ul class="nested-tree">
+                {% include 'base_parts/submenu.html' %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}

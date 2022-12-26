@@ -1,0 +1,26 @@
+{% load menu_template_tag %}
+
+<ul class="tree">
+    <li>
+        <b>{{ menu_name }}</b>
+        <span class="arrow"></span>
+        <ul class="nested-tree">
+            {% for item in items %}
+                <li>
+                    {% if not item.parent %}
+                        <a href="{% url 'menu_item' slug=item.slug %}">
+                            <span>{{ item.name }}</span>
+                        </a>
+                        {% if item.children.all|active_items %}
+                            <span class="arrow"></span>
+                            <ul class="nested-tree">
+                                {% include 'base_parts/submenu.html' %}
+                            </ul>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </li>
+</ul>
+

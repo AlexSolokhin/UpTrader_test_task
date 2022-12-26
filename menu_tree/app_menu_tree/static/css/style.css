@@ -1,0 +1,33 @@
+ul, .tree {
+  list-style-type: none;
+}
+
+.tree {
+  margin: 0;
+  padding: 0;
+}
+
+.arrow {
+  cursor: pointer;
+  user-select: none;
+  padding-left: 10px;
+}
+
+.arrow::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.arrow-down::before {
+  transform: rotate(90deg);
+}
+
+.nested-tree {
+  display: none;
+}
+
+.active {
+  display: block;
+}
